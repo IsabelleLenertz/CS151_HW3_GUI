@@ -10,11 +10,11 @@ public class ControllerTextFields extends JFrame{
 	private static final long serialVersionUID = -3773576483006388533L;
 	private JTextField fields[];
 	private ModelData data;
-	private static final int FIELD_WIDTH = 150;
+	private static final int FIELD_WIDTH = 50;
 
 	
 	public ControllerTextFields(ModelData modelData) {
-		this.setSize(600,  1000);
+		this.setSize(150,  150);
 		data = modelData;
 		
 		// Set the layout (Vertical display of all the text frames)
@@ -58,7 +58,7 @@ public class ControllerTextFields extends JFrame{
 		
 		// Set the Frame visible
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    //pack();
+	    pack();
 	    setVisible(true);
 		
 	}
