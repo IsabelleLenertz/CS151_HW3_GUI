@@ -1,5 +1,6 @@
 /**
  * Author: Cay Horstmann, Object-Oriented Design & Patterns 3rd edition
+ * Modified by: Isabelle Delmas
  */
 
 import java.awt.*;
