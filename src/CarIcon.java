@@ -1,44 +1,44 @@
 /**
- * Author: Cay Horstmann, Object-Oriented Design & Patterns 3rd edition
+ * @Author: Cay Horstmann
+ * Source: OOD, 3rd edition, repository: https://bitbucket.org/cayhorstmann/oodp3code
  * Modified by: Isabelle Delmas
  */
 
 import java.awt.*;
 import java.awt.geom.*;
+import javax.swing.*;
 
 /**
-   A car that can be moved around.
+   An icon that has the shape of a car.
 */
-public class CarShape implements MoveableShape
+public class CarIcon implements Icon
 {
    /**
-      Constructs a car item.
-      @param x the left of the bounding rectangle
-      @param y the top of the bounding rectangle
-      @param width the width of the bounding rectangle
+      Constructs a car of a given width.
+      @param width the width of the car
    */
-   public CarShape(int x, int y, int width)
+   public CarIcon(int aWidth)
    {
-      this.x = x;
-      this.y = y;
-      this.width = width;
+      width = aWidth;
+   }
+   
+   public int getIconWidth()
+   {
+      return width;
    }
 
-   public void move()
+   public int getIconHeight()
    {
-      x++;
+      return width / 2;
    }
    
-   public int getX() {
-	   return x;
+   public void setWidth(int newWidth) {
+	   width = newWidth;
    }
-   
-   public void setX(int xPos) {
-	   this.x = xPos;
-   }
-   
-   public void draw(Graphics2D g2)
+
+   public void paintIcon(Component c, Graphics g, int x, int y)
    {
+      Graphics2D g2 = (Graphics2D) g;
       Rectangle2D.Double body
             = new Rectangle2D.Double(x, y + width / 6, 
                   width - 1, width / 6);
@@ -61,22 +61,22 @@ public class CarShape implements MoveableShape
       // The bottom of the rear windshield
       Point2D.Double r4
             = new Point2D.Double(x + width * 5 / 6, y + width / 6);
+
       Line2D.Double frontWindshield
             = new Line2D.Double(r1, r2);
       Line2D.Double roofTop
             = new Line2D.Double(r2, r3);
       Line2D.Double rearWindshield
             = new Line2D.Double(r3, r4);
-      
-      g2.draw(body);
-      g2.draw(frontTire);
-      g2.draw(rearTire);
+
+      g2.fill(frontTire);
+      g2.fill(rearTire);
+      g2.setColor(Color.red);
+      g2.fill(body);
       g2.draw(frontWindshield);
       g2.draw(roofTop);
       g2.draw(rearWindshield);
    }
-   
-   private int x;
-   private int y;
+
    private int width;
 }

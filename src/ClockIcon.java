@@ -11,17 +11,11 @@ import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
 import javax.swing.Icon;
-import javax.swing.JLabel;
 
 public class ClockIcon implements Icon {
 	
 	private int radius;
-	
-	private int DEGREES = 360;
-	private int MINUTES_IN_HOUR = 60;
-	private int HOURS_IN_HALF_DAY = 12;
-	private int SECONDS_IN_MINUTE = 60;
-	
+		
 	public ClockIcon(int theRadius) {
 		this.radius = theRadius;
 	}
