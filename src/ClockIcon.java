@@ -12,10 +12,19 @@ import java.util.TimeZone;
 
 import javax.swing.Icon;
 
+/**
+ * Icon representing a clock
+ * @author isabelle delmas
+ *
+ */
 public class ClockIcon implements Icon {
 	
 	private int radius;
 		
+	/**
+	 * Constructor with the radius of the clock
+	 * @param theRadius
+	 */
 	public ClockIcon(int theRadius) {
 		this.radius = theRadius;
 	}
@@ -45,17 +54,17 @@ public class ClockIcon implements Icon {
 		// Draw the hour hand
 		//double hourAngle = (hours*MINUTES_IN_HOUR + minutes)*DEGREES/(HOURS_IN_HALF_DAY*MINUTES_IN_HOUR);
 		double hourAngle = 0.5*(60*hours+minutes);
-		Line2D.Double hoursHand = new Line2D.Double(x, y, x+Math.cos(-Math.toRadians(hourAngle))*(radius-15), y+Math.sin(-Math.toRadians(hourAngle))*(radius-15));
+		Line2D.Double hoursHand = new Line2D.Double(x, y, x+Math.sin(Math.toRadians(hourAngle))*(radius-15), y - Math.cos(Math.toRadians(hourAngle))*(radius-15));
 		g2.draw(hoursHand);
 		
 		// Draw the minutes hand
-		double minuteAngle = 6*minutes - 90;
-		Line2D.Double minutesHand = new Line2D.Double(x, y, x + Math.cos(Math.toRadians(minuteAngle))*(radius-10), y + Math.sin(Math.toRadians(minuteAngle))*(radius-10));
+		double minuteAngle = 6*minutes;
+		Line2D.Double minutesHand = new Line2D.Double(x, y, x + Math.sin(Math.toRadians(minuteAngle))*(radius-10), y - Math.cos(Math.toRadians(minuteAngle))*(radius-10));
 		g2.draw(minutesHand);
 		
 		// Draw the second hand
-		double secondAngle = 6*seconds - 90;
-		Line2D.Double secondHand = new Line2D.Double(x, y, x + Math.cos(Math.toRadians(secondAngle))*radius, y + Math.sin(Math.toRadians(secondAngle))*radius);
+		double secondAngle = 6*seconds;
+		Line2D.Double secondHand = new Line2D.Double(x, y, x + Math.sin(Math.toRadians(secondAngle))*radius, y - Math.cos(Math.toRadians(secondAngle))*radius);
 		g2.draw(secondHand);
 		
 

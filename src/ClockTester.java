@@ -4,6 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
+/**
+ * Tester for the clock icon
+ * @author isabelle delmas
+ *
+ */
 public class ClockTester {
 
 	public static void main(String[] args) {

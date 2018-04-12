@@ -7,7 +7,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- * 
+ * Tester for the slider
  * @author Isabelle Delmas
  *
  */

@@ -22,20 +22,36 @@ public class CarIcon implements Icon
       width = aWidth;
    }
    
+   /**
+    * Get the with of the icon
+    * @return widht
+    */
    public int getIconWidth()
    {
       return width;
    }
 
+   /**
+    * Get height of icon
+    * @return hiegth
+    */
    public int getIconHeight()
    {
       return width / 2;
    }
    
+   /**
+    * set the width
+    * @param newWidth width
+    */
    public void setWidth(int newWidth) {
 	   width = newWidth;
    }
 
+   /**
+    * display the icon
+    * 
+    */
    public void paintIcon(Component c, Graphics g, int x, int y)
    {
       Graphics2D g2 = (Graphics2D) g;

@@ -5,14 +5,22 @@ import javax.swing.JTextField;
 import java.awt.Container;
 import java.awt.event.*;
 
-public class ControllerTextFields extends JFrame{
+/**
+ * Display values and wait for updates
+ * @author isabelle Delmas
+ *
+ */
+public class ControllerTextFields extends JFrame implements Observer{
 
 	private static final long serialVersionUID = -3773576483006388533L;
 	private JTextField fields[];
 	private ModelData data;
 	private static final int FIELD_WIDTH = 50;
 
-	
+	/**
+	 * Constructor with a specific model
+	 * @param modelData model
+	 */
 	public ControllerTextFields(ModelData modelData) {
 		this.setSize(150,  150);
 		data = modelData;
@@ -41,7 +49,7 @@ public class ControllerTextFields extends JFrame{
 					d = Double.parseDouble(field.getText());
 					data.update(d,  index);
 				} catch (Exception err) {
-					field.setText(err.getMessage());
+					field.setText("Error, No update");
 				}
 				
 			}
@@ -61,6 +69,15 @@ public class ControllerTextFields extends JFrame{
 	    pack();
 	    setVisible(true);
 		
+	}
+	
+	/**
+	 * Updates the data fields
+	 */
+	public void notifyChange() {
+		for (int i = 0; i < data.size(); i++) {
+			fields[i].setText("" + data.get(i));
+		}
 	}
 	
 	

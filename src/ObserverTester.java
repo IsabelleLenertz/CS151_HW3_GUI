@@ -1,4 +1,9 @@
 
+/**
+ * Test the display of MVC
+ * @author isabelle Delmas
+ *
+ */
 public class ObserverTester {
 
 	public static void main(String[] args) {
@@ -12,6 +17,7 @@ public class ObserverTester {
 		ControllerTextFields textFields = new ControllerTextFields(data);
 		
 		data.addObserver(new BarObserver(data));
+		data.addObserver(textFields);
 		
 		
 	}
