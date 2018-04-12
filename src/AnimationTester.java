@@ -30,14 +30,14 @@ public class AnimationTester
       frame.pack();
       frame.setVisible(true);
 
-      final int DELAY = 100;
+      final int DELAY = 50;
       // Milliseconds between timer ticks
       Timer t = new Timer(DELAY, event ->
          {
         	
             shape.move();
             if (shape.getX() > ICON_WIDTH) {
-            	shape.setX(0);
+            	shape.setX(-ICON_WIDTH/4);
             }
             label.repaint();
          });
