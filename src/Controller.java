@@ -4,6 +4,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Controller from the MVC pattern
+ * @author isabelle Delmas
+ *
+ */
 public class Controller extends JPanel{
 
 	private static final long serialVersionUID = 1L;
@@ -11,6 +16,10 @@ public class Controller extends JPanel{
 	private JTextField text;
 	private Model data;
 
+	/**
+	 * Construct the controller and sets up its display
+	 * @param model the model to update
+	 */
 	public Controller(Model model) {
 		super();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -31,9 +40,6 @@ public class Controller extends JPanel{
 		addBtn.addActionListener(e -> {
 			data.addText(text.getText());
 			text.setText("");
-		});
-		
-		
-		
+		});	
 	}
 }
